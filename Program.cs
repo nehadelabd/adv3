@@ -144,21 +144,22 @@ namespace adv3
 
 
         #region 11
-        static int CountKeysStartingWith(Dictionary<string, int> dict, char targetChar)
-        {
-            int count = 0;
+        //static int CountKeysStartingWith(Dictionary<string, int> dict, char targetChar)
+        //{
+        //    int count = 0;
 
-            foreach (var key in dict.Keys)
-            {
-                if (key.StartsWith(targetChar.ToString(), StringComparison.OrdinalIgnoreCase))
-                {
-                    count++;
-                }
-            }
+        //    foreach (var key in dict.Keys)
+        //    {
+        //        if (key.StartsWith(targetChar.ToString(), StringComparison.OrdinalIgnoreCase))
+        //        {
+        //            count++;
+        //        }
+        //    }
 
-            return count;
-        } 
+        //    return count;
+        //} 
         #endregion
+
         static void Main(string[] args)
         {
 
@@ -336,18 +337,46 @@ namespace adv3
 
             #endregion
             #region 11
-            Dictionary<string, int> dict = new Dictionary<string, int>()
-        {
-            { "apple", 1 },
-            { "animal", 2 },
-            { "airport", 3 },
-            { "banana", 4 },
-            { "car", 5 }
-        };
+            //    Dictionary<string, int> dict = new Dictionary<string, int>()
+            //{
+            //    { "apple", 1 },
+            //    { "animal", 2 },
+            //    { "airport", 3 },
+            //    { "banana", 4 },
+            //    { "car", 5 }
+            //};
             #endregion
+            #region 13
+            SortedList<int, int> numbers = new SortedList<int, int>()
+        {
+            { 1, 5 },
+            { 2, 8 },
+            { 3, 10 },
+            { 4, 7 },
+            { 5, 12 }
+        };
 
+            Console.WriteLine("Original SortedList (Key -> Value):");
+            foreach (var pair in numbers)
+                Console.WriteLine($"{pair.Key} -> {pair.Value}");
 
+            List<int> evenValueKeys = new List<int>();
+
+            foreach (var pair in numbers)
+            {
+                if (pair.Value % 2 == 0)
+                    evenValueKeys.Add(pair.Key);
+            }
+
+            Console.WriteLine("\nKeys with even values:");
+            if (evenValueKeys.Count > 0)
+                Console.WriteLine(string.Join(", ", evenValueKeys));
+            else
+                Console.WriteLine("No even values found.");
         }
+        #endregion
+
+    }
 
     }
 

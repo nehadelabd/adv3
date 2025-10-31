@@ -1,4 +1,6 @@
-﻿namespace adv3
+﻿using System.Collections;
+
+namespace adv3
 {
     internal class Program
     {
@@ -125,6 +127,19 @@
         //    }
         //}
 
+        #endregion
+        #region 9
+        static Hashtable SwapKeysAndValues(Hashtable original)
+        {
+            Hashtable swapped = new Hashtable();
+
+            foreach (DictionaryEntry entry in original)
+            {
+                swapped[entry.Value] = entry.Key;
+            }
+
+            return swapped;
+        }
         #endregion
         static void Main(string[] args)
         {
@@ -254,17 +269,41 @@
 
             #endregion
             #region 8
-            List<int> numbers = new List<int> { 1, 2, 3, 2, 4, 3, 5, 1 };
+            //List<int> numbers = new List<int> { 1, 2, 3, 2, 4, 3, 5, 1 };
 
-            Console.WriteLine("Original List:");
-            Console.WriteLine(string.Join(", ", numbers));
+            //Console.WriteLine("Original List:");
+            //Console.WriteLine(string.Join(", ", numbers));
 
-            HashSet<int> uniqueNumbers = new HashSet<int>(numbers);
+            //HashSet<int> uniqueNumbers = new HashSet<int>(numbers);
 
-            Console.WriteLine("\nUnique Values (using HashSet):");
-            Console.WriteLine(string.Join(", ", uniqueNumbers));
+            //Console.WriteLine("\nUnique Values (using HashSet):");
+            //Console.WriteLine(string.Join(", ", uniqueNumbers));
             #endregion
-        }
+            #region 9
+                Hashtable original = new Hashtable()
+            {
+                { "A", 1 },
+                { "B", 2 },
+                { "C", 3 }
+            };
+
+                Console.WriteLine("Original Hashtable:");
+                foreach (DictionaryEntry entry in original)
+                {
+                    Console.WriteLine($"{entry.Key} : {entry.Value}");
+                }
+
+                // Swap keys and values
+                Hashtable swapped = SwapKeysAndValues(original);
+
+                Console.WriteLine("\nSwapped Hashtable:");
+                foreach (DictionaryEntry entry in swapped)
+                {
+                    Console.WriteLine($"{entry.Key} : {entry.Value}");
+                }
+            } 
+        #endregion
+    }
 
 
 }

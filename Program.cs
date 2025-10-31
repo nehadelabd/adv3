@@ -69,27 +69,44 @@
         //}
         #endregion
         #region 4
-        static void FindKeysByValue(Dictionary<string, string> table, string targetValue)
+        //static void FindKeysByValue(Dictionary<string, string> table, string targetValue)
+        //{
+        //    bool found = false;
+
+        //    foreach (var pair in table)
+        //    {
+        //        if (pair.Value == targetValue)
+        //        {
+        //            Console.WriteLine(pair.Key);
+        //            found = true;
+        //        }
+        //    }
+
+        //    if (!found)
+        //    {
+        //        Console.WriteLine("Key not found");
+        //    }
+        //} 
+        #endregion
+        #region 5
+        static List<List<string>> GroupAnagrams(string[] words)
         {
-            bool found = false;
+            Dictionary<string, List<string>> groups = new Dictionary<string, List<string>>();
 
-            foreach (var pair in table)
+            foreach (string word in words)
             {
-                if (pair.Value == targetValue)
-                {
-                    Console.WriteLine(pair.Key);
-                    found = true;
-                }
+                string sortedWord = String.Concat(word.OrderBy(c => c));
+
+                if (!groups.ContainsKey(sortedWord))
+                    groups[sortedWord] = new List<string>();
+
+                groups[sortedWord].Add(word);
             }
 
-            if (!found)
-            {
-                Console.WriteLine("Key not found");
-            }
-        } 
-	#endregion
+            return groups.Values.ToList();
+        }
+        #endregion
 
-         
 
         static void Main(string[] args)
         {
@@ -130,19 +147,35 @@
             //    Console.WriteLine($"Key with the highest value: {keyWithHighestValue}");
             #endregion
             #region 4
-            Dictionary<string, string> dict = new Dictionary<string, string>()
-        {
-            { "key1", "apple" },
-            { "key2", "banana" },
-            { "key3", "apple" }
-        };
+            //    Dictionary<string, string> dict = new Dictionary<string, string>()
+            //{
+            //    { "key1", "apple" },
+            //    { "key2", "banana" },
+            //    { "key3", "apple" }
+            //};
 
-            Console.Write("Enter target value: ");
-            string target = Console.ReadLine();
+            //    Console.Write("Enter target value: ");
+            //    string target = Console.ReadLine();
 
-            FindKeysByValue(dict, target);
-        } 
-        #endregion
+            //    FindKeysByValue(dict, target);
+            //} 
+            #endregion
+            #region 5
+
+            string[] words = { "eat", "tea", "tan", "ate", "nat", "bat" };
+
+            var grouped = GroupAnagrams(words);
+
+            Console.WriteLine("Grouped Anagrams:");
+            foreach (var group in grouped)
+            {
+                Console.WriteLine("[" + string.Join(", ", group) + "]");
+            }
+            #endregion
+        }
+
+
     }
-    }
+}
+    
 

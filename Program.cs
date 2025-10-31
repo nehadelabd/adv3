@@ -141,6 +141,24 @@ namespace adv3
         //    return swapped;
         //}
         #endregion
+
+
+        #region 11
+        static int CountKeysStartingWith(Dictionary<string, int> dict, char targetChar)
+        {
+            int count = 0;
+
+            foreach (var key in dict.Keys)
+            {
+                if (key.StartsWith(targetChar.ToString(), StringComparison.OrdinalIgnoreCase))
+                {
+                    count++;
+                }
+            }
+
+            return count;
+        } 
+        #endregion
         static void Main(string[] args)
         {
 
@@ -305,21 +323,34 @@ namespace adv3
             #endregion
 
             #region 10
-            HashSet<int> set1 = new HashSet<int> { 1, 2, 3, 4 };
-            HashSet<int> set2 = new HashSet<int> { 3, 4, 5, 6 };
+            //HashSet<int> set1 = new HashSet<int> { 1, 2, 3, 4 };
+            //HashSet<int> set2 = new HashSet<int> { 3, 4, 5, 6 };
 
-            Console.WriteLine("Set 1: " + string.Join(", ", set1));
-            Console.WriteLine("Set 2: " + string.Join(", ", set2));
-            HashSet<int> unionSet = new HashSet<int>(set1); 
-            unionSet.UnionWith(set2); 
+            //Console.WriteLine("Set 1: " + string.Join(", ", set1));
+            //Console.WriteLine("Set 2: " + string.Join(", ", set2));
+            //HashSet<int> unionSet = new HashSet<int>(set1); 
+            //unionSet.UnionWith(set2); 
 
-            Console.WriteLine("\nUnion of Set1 and Set2:");
-            Console.WriteLine(string.Join(", ", unionSet));
+            //Console.WriteLine("\nUnion of Set1 and Set2:");
+            //Console.WriteLine(string.Join(", ", unionSet));
+
+            #endregion
+            #region 11
+            Dictionary<string, int> dict = new Dictionary<string, int>()
+        {
+            { "apple", 1 },
+            { "animal", 2 },
+            { "airport", 3 },
+            { "banana", 4 },
+            { "car", 5 }
+        };
+            #endregion
+
+
         }
-        #endregion
 
-    } 
-    }   
+    }
+
 
 }
 

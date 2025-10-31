@@ -107,16 +107,25 @@
         //}
         #endregion
         #region 6
-        static void DisplayStudents(SortedDictionary<int, string> dict)
+        //static void DisplayStudents(SortedDictionary<int, string> dict)
+        //{
+        //    foreach (var kvp in dict)
+        //    {
+        //        Console.WriteLine($"ID: {kvp.Key}, Name: {kvp.Value}");
+        //    }
+        //}
+
+        #endregion
+        #region 7
+        static void DisplayEmployees(SortedList<int, string> list)
         {
-            foreach (var kvp in dict)
+            foreach (var kvp in list)
             {
                 Console.WriteLine($"ID: {kvp.Key}, Name: {kvp.Value}");
             }
         }
 
         #endregion
-
         static void Main(string[] args)
         {
 
@@ -182,40 +191,72 @@
             //}
             #endregion
             #region 6
-            SortedDictionary<int, string> students = new SortedDictionary<int, string>();
+            //    SortedDictionary<int, string> students = new SortedDictionary<int, string>();
 
-            students.Add(102, "Alice");
-            students.Add(101, "Bob");
-            students.Add(104, "Charlie");
-            students.Add(103, "David");
+            //    students.Add(102, "Alice");
+            //    students.Add(101, "Bob");
+            //    students.Add(104, "Charlie");
+            //    students.Add(103, "David");
 
-            Console.WriteLine("Students after adding:");
-            DisplayStudents(students);
+            //    Console.WriteLine("Students after adding:");
+            //    DisplayStudents(students);
 
-            Console.Write("\nEnter Student ID to retrieve: ");
+            //    Console.Write("\nEnter Student ID to retrieve: ");
+            //    int id = int.Parse(Console.ReadLine());
+
+            //    if (students.ContainsKey(id))
+            //        Console.WriteLine($"Student with ID {id}: {students[id]}");
+            //    else
+            //        Console.WriteLine("Student not found!");
+
+            //    Console.Write("\nEnter Student ID to remove: ");
+            //    int removeId = int.Parse(Console.ReadLine());
+
+            //    if (students.Remove(removeId))
+            //        Console.WriteLine($"Student with ID {removeId} removed successfully.");
+            //    else
+            //        Console.WriteLine("Student ID not found!");
+
+            //    Console.WriteLine("\nFinal list of students:");
+            //    DisplayStudents(students);
+            //}
+            #endregion
+            #region 7
+            SortedList<int, string> employees = new SortedList<int, string>();
+
+            employees.Add(102, "Alice");
+            employees.Add(101, "Bob");
+            employees.Add(104, "Charlie");
+            employees.Add(103, "David");
+
+            Console.WriteLine("Employees after adding:");
+            DisplayEmployees(employees);
+
+            Console.Write("\nEnter Employee ID to retrieve: ");
             int id = int.Parse(Console.ReadLine());
 
-            if (students.ContainsKey(id))
-                Console.WriteLine($"Student with ID {id}: {students[id]}");
+            if (employees.ContainsKey(id))
+                Console.WriteLine($"Employee with ID {id}: {employees[id]}");
             else
-                Console.WriteLine("Student not found!");
+                Console.WriteLine("Employee not found!");
 
-            Console.Write("\nEnter Student ID to remove: ");
+            Console.Write("\nEnter Employee ID to remove: ");
             int removeId = int.Parse(Console.ReadLine());
 
-            if (students.Remove(removeId))
-                Console.WriteLine($"Student with ID {removeId} removed successfully.");
+            if (employees.Remove(removeId))
+                Console.WriteLine($"Employee with ID {removeId} removed successfully.");
             else
-                Console.WriteLine("Student ID not found!");
+                Console.WriteLine("Employee ID not found!");
 
-            Console.WriteLine("\nFinal list of students:");
-            DisplayStudents(students);
+            Console.WriteLine("\nFinal Employee Directory:");
+            DisplayEmployees(employees);
         }
+
         #endregion
     }
 
 
-    }
+}
 }
     
 

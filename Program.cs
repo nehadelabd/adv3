@@ -46,6 +46,51 @@
         //    }
         //}
         #endregion
+        #region 3
+        //static string FindKeyWithHighestValue(Dictionary<string, int> table)
+        //{
+        //    if (table == null || table.Count == 0)
+        //        throw new ArgumentException("Hashtable is empty.");
+
+        //    string maxKey = null;
+        //    int maxValue = int.MinValue;
+
+        //    // Iterate through each key-value pair
+        //    foreach (var pair in table)
+        //    {
+        //        if (pair.Value > maxValue)
+        //        {
+        //            maxValue = pair.Value;
+        //            maxKey = pair.Key;
+        //        }
+        //    }
+
+        //    return maxKey;
+        //}
+        #endregion
+        #region 4
+        static void FindKeysByValue(Dictionary<string, string> table, string targetValue)
+        {
+            bool found = false;
+
+            foreach (var pair in table)
+            {
+                if (pair.Value == targetValue)
+                {
+                    Console.WriteLine(pair.Key);
+                    found = true;
+                }
+            }
+
+            if (!found)
+            {
+                Console.WriteLine("Key not found");
+            }
+        } 
+	#endregion
+
+         
+
         static void Main(string[] args)
         {
 
@@ -71,6 +116,33 @@
 
             //CountFrequencies(arr);
             #endregion
-        }
+            #region 3
+            //    Dictionary<string, int> scores = new Dictionary<string, int>()
+            //{
+            //    { "Alice", 85 },
+            //    { "Bob", 92 },
+            //    { "Charlie", 78 },
+            //    { "David", 92 }
+            //};
+
+            //    string keyWithHighestValue = FindKeyWithHighestValue(scores);
+
+            //    Console.WriteLine($"Key with the highest value: {keyWithHighestValue}");
+            #endregion
+            #region 4
+            Dictionary<string, string> dict = new Dictionary<string, string>()
+        {
+            { "key1", "apple" },
+            { "key2", "banana" },
+            { "key3", "apple" }
+        };
+
+            Console.Write("Enter target value: ");
+            string target = Console.ReadLine();
+
+            FindKeysByValue(dict, target);
+        } 
+        #endregion
     }
-}
+    }
+

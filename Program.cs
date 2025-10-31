@@ -89,24 +89,33 @@
         //} 
         #endregion
         #region 5
-        static List<List<string>> GroupAnagrams(string[] words)
-        {
-            Dictionary<string, List<string>> groups = new Dictionary<string, List<string>>();
+        //static List<List<string>> GroupAnagrams(string[] words)
+        //{
+        //    Dictionary<string, List<string>> groups = new Dictionary<string, List<string>>();
 
-            foreach (string word in words)
-            {
-                string sortedWord = String.Concat(word.OrderBy(c => c));
+        //    foreach (string word in words)
+        //    {
+        //        string sortedWord = String.Concat(word.OrderBy(c => c));
 
-                if (!groups.ContainsKey(sortedWord))
-                    groups[sortedWord] = new List<string>();
+        //        if (!groups.ContainsKey(sortedWord))
+        //            groups[sortedWord] = new List<string>();
 
-                groups[sortedWord].Add(word);
-            }
+        //        groups[sortedWord].Add(word);
+        //    }
 
-            return groups.Values.ToList();
-        }
+        //    return groups.Values.ToList();
+        //}
         #endregion
+        #region 6
+        static void DisplayStudents(SortedDictionary<int, string> dict)
+        {
+            foreach (var kvp in dict)
+            {
+                Console.WriteLine($"ID: {kvp.Key}, Name: {kvp.Value}");
+            }
+        }
 
+        #endregion
 
         static void Main(string[] args)
         {
@@ -162,17 +171,48 @@
             #endregion
             #region 5
 
-            string[] words = { "eat", "tea", "tan", "ate", "nat", "bat" };
+            //string[] words = { "eat", "tea", "tan", "ate", "nat", "bat" };
 
-            var grouped = GroupAnagrams(words);
+            //var grouped = GroupAnagrams(words);
 
-            Console.WriteLine("Grouped Anagrams:");
-            foreach (var group in grouped)
-            {
-                Console.WriteLine("[" + string.Join(", ", group) + "]");
-            }
+            //Console.WriteLine("Grouped Anagrams:");
+            //foreach (var group in grouped)
+            //{
+            //    Console.WriteLine("[" + string.Join(", ", group) + "]");
+            //}
             #endregion
+            #region 6
+            SortedDictionary<int, string> students = new SortedDictionary<int, string>();
+
+            students.Add(102, "Alice");
+            students.Add(101, "Bob");
+            students.Add(104, "Charlie");
+            students.Add(103, "David");
+
+            Console.WriteLine("Students after adding:");
+            DisplayStudents(students);
+
+            Console.Write("\nEnter Student ID to retrieve: ");
+            int id = int.Parse(Console.ReadLine());
+
+            if (students.ContainsKey(id))
+                Console.WriteLine($"Student with ID {id}: {students[id]}");
+            else
+                Console.WriteLine("Student not found!");
+
+            Console.Write("\nEnter Student ID to remove: ");
+            int removeId = int.Parse(Console.ReadLine());
+
+            if (students.Remove(removeId))
+                Console.WriteLine($"Student with ID {removeId} removed successfully.");
+            else
+                Console.WriteLine("Student ID not found!");
+
+            Console.WriteLine("\nFinal list of students:");
+            DisplayStudents(students);
         }
+        #endregion
+    }
 
 
     }

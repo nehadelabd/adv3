@@ -129,17 +129,17 @@ namespace adv3
 
         #endregion
         #region 9
-        static Hashtable SwapKeysAndValues(Hashtable original)
-        {
-            Hashtable swapped = new Hashtable();
+        //static Hashtable SwapKeysAndValues(Hashtable original)
+        //{
+        //    Hashtable swapped = new Hashtable();
 
-            foreach (DictionaryEntry entry in original)
-            {
-                swapped[entry.Value] = entry.Key;
-            }
+        //    foreach (DictionaryEntry entry in original)
+        //    {
+        //        swapped[entry.Value] = entry.Key;
+        //    }
 
-            return swapped;
-        }
+        //    return swapped;
+        //}
         #endregion
         static void Main(string[] args)
         {
@@ -280,33 +280,48 @@ namespace adv3
             //Console.WriteLine(string.Join(", ", uniqueNumbers));
             #endregion
             #region 9
-                Hashtable original = new Hashtable()
-            {
-                { "A", 1 },
-                { "B", 2 },
-                { "C", 3 }
-            };
+            //    Hashtable original = new Hashtable()
+            //{
+            //    { "A", 1 },
+            //    { "B", 2 },
+            //    { "C", 3 }
+            //};
 
-                Console.WriteLine("Original Hashtable:");
-                foreach (DictionaryEntry entry in original)
-                {
-                    Console.WriteLine($"{entry.Key} : {entry.Value}");
-                }
+            //    Console.WriteLine("Original Hashtable:");
+            //    foreach (DictionaryEntry entry in original)
+            //    {
+            //        Console.WriteLine($"{entry.Key} : {entry.Value}");
+            //    }
 
-                // Swap keys and values
-                Hashtable swapped = SwapKeysAndValues(original);
+            //    // Swap keys and values
+            //    Hashtable swapped = SwapKeysAndValues(original);
 
-                Console.WriteLine("\nSwapped Hashtable:");
-                foreach (DictionaryEntry entry in swapped)
-                {
-                    Console.WriteLine($"{entry.Key} : {entry.Value}");
-                }
-            } 
+            //    Console.WriteLine("\nSwapped Hashtable:");
+            //    foreach (DictionaryEntry entry in swapped)
+            //    {
+            //        Console.WriteLine($"{entry.Key} : {entry.Value}");
+            //    }
+            //} 
+            #endregion
+
+            #region 10
+            HashSet<int> set1 = new HashSet<int> { 1, 2, 3, 4 };
+            HashSet<int> set2 = new HashSet<int> { 3, 4, 5, 6 };
+
+            Console.WriteLine("Set 1: " + string.Join(", ", set1));
+            Console.WriteLine("Set 2: " + string.Join(", ", set2));
+            HashSet<int> unionSet = new HashSet<int>(set1); 
+            unionSet.UnionWith(set2); 
+
+            Console.WriteLine("\nUnion of Set1 and Set2:");
+            Console.WriteLine(string.Join(", ", unionSet));
+        }
         #endregion
-    }
 
+    } 
+    }   
 
 }
-}
+
     
 

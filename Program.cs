@@ -117,13 +117,13 @@
 
         #endregion
         #region 7
-        static void DisplayEmployees(SortedList<int, string> list)
-        {
-            foreach (var kvp in list)
-            {
-                Console.WriteLine($"ID: {kvp.Key}, Name: {kvp.Value}");
-            }
-        }
+        //static void DisplayEmployees(SortedList<int, string> list)
+        //{
+        //    foreach (var kvp in list)
+        //    {
+        //        Console.WriteLine($"ID: {kvp.Key}, Name: {kvp.Value}");
+        //    }
+        //}
 
         #endregion
         static void Main(string[] args)
@@ -222,38 +222,49 @@
             //}
             #endregion
             #region 7
-            SortedList<int, string> employees = new SortedList<int, string>();
+            //    SortedList<int, string> employees = new SortedList<int, string>();
 
-            employees.Add(102, "Alice");
-            employees.Add(101, "Bob");
-            employees.Add(104, "Charlie");
-            employees.Add(103, "David");
+            //    employees.Add(102, "Alice");
+            //    employees.Add(101, "Bob");
+            //    employees.Add(104, "Charlie");
+            //    employees.Add(103, "David");
 
-            Console.WriteLine("Employees after adding:");
-            DisplayEmployees(employees);
+            //    Console.WriteLine("Employees after adding:");
+            //    DisplayEmployees(employees);
 
-            Console.Write("\nEnter Employee ID to retrieve: ");
-            int id = int.Parse(Console.ReadLine());
+            //    Console.Write("\nEnter Employee ID to retrieve: ");
+            //    int id = int.Parse(Console.ReadLine());
 
-            if (employees.ContainsKey(id))
-                Console.WriteLine($"Employee with ID {id}: {employees[id]}");
-            else
-                Console.WriteLine("Employee not found!");
+            //    if (employees.ContainsKey(id))
+            //        Console.WriteLine($"Employee with ID {id}: {employees[id]}");
+            //    else
+            //        Console.WriteLine("Employee not found!");
 
-            Console.Write("\nEnter Employee ID to remove: ");
-            int removeId = int.Parse(Console.ReadLine());
+            //    Console.Write("\nEnter Employee ID to remove: ");
+            //    int removeId = int.Parse(Console.ReadLine());
 
-            if (employees.Remove(removeId))
-                Console.WriteLine($"Employee with ID {removeId} removed successfully.");
-            else
-                Console.WriteLine("Employee ID not found!");
+            //    if (employees.Remove(removeId))
+            //        Console.WriteLine($"Employee with ID {removeId} removed successfully.");
+            //    else
+            //        Console.WriteLine("Employee ID not found!");
 
-            Console.WriteLine("\nFinal Employee Directory:");
-            DisplayEmployees(employees);
+            //    Console.WriteLine("\nFinal Employee Directory:");
+            //    DisplayEmployees(employees);
+            //}
+
+            #endregion
+            #region 8
+            List<int> numbers = new List<int> { 1, 2, 3, 2, 4, 3, 5, 1 };
+
+            Console.WriteLine("Original List:");
+            Console.WriteLine(string.Join(", ", numbers));
+
+            HashSet<int> uniqueNumbers = new HashSet<int>(numbers);
+
+            Console.WriteLine("\nUnique Values (using HashSet):");
+            Console.WriteLine(string.Join(", ", uniqueNumbers));
+            #endregion
         }
-
-        #endregion
-    }
 
 
 }
